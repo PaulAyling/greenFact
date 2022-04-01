@@ -1,4 +1,6 @@
 <script>
+	import { intros } from 'svelte/internal';
+
 	export let chartData;
 	import CardHeader from './CardHeader.svelte';
 	import Pie from './Pie.svelte';
@@ -20,37 +22,52 @@
 		const makeCumulative = (arr) => {
 			let res = [];
 			for (let i = 0; i < arr.length; i++) {
-			let cumulativeDeg
-			if(i == 0){
-				cumulativeDeg = arr[i]
-			} else{
-				cumulativeDeg =  arr[i] + parseFloat(res[i-1])
-			}
-			res.push(cumulativeDeg)
+				let cumulativeDeg;
+				if (i == 0) {
+					cumulativeDeg = arr[i];
+				} else {
+					cumulativeDeg = arr[i] + parseFloat(res[i - 1]);
+				}
+				res.push(cumulativeDeg);
 			}
 			return res;
 		};
-		const cum = makeCumulative(degArr)
-		console.log('makeCumulative',cum)
-		const makeParams = (arr) =>{
+		const cum = makeCumulative(degArr);
+		console.log('makeCumulative', cum);
+		const makeParams = (arr) => {
+			const applyUnit = (n) => {
+				if ((n == '0')) {
+					return '0';
+				} else {
+					return n + 'deg';
+				}
+			};
+
 			let res = [];
 			for (let i = 0; i < arr.length; i++) {
-				
+				const rnd = parseInt(arr[i]);
+				const str = String(rnd);
+				const current = applyUnit(str);
+				let param;
+				if (i == 0) {
+					param = '0 ' + current;
+				} else {
+					// param = 'hello'
+					const recordBefore = applyUnit(String(parseInt(arr[i-1]))) 
+					param = recordBefore + ' '+current
+					res.push(param);
+				}
 			}
-
-		}
-
-
-		// const res = convertToParams(degArr);
-		// return res;
+			return res;
+		};
+		const final = makeParams(cum);
+		return final
 	};
-	createCssParams(generationMix);
-	// console.log('convertToDegrees',convertToDegrees(generationMix))
-	// const mixByDegrees = convertToDegrees(generationMix)
-	// const name = 'bob'
+	const cssParams = createCssParams(generationMix);
+
 </script>
 
-<!-- <main >
+<main >
 	<ardHeader {chartData}/>
-	<Pie {mixByDegrees} />
-</main> -->
+	<Pie {cssParams} />
+</main>
