@@ -13,7 +13,7 @@
         {chartData.intensity.forecast}
     </div>
     <div class=" text-gray-300 text-center font-bold divide-solid">
-        gCO2/kWh
+        gCO<sub>2</sub>/kWh
         
         <hr class="mt-10">
 </div>
