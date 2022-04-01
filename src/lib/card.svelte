@@ -14,7 +14,7 @@
     console.log('convertToDegrees',convertToDegrees(generationMix))
     const mixByDegrees = convertToDegrees(generationMix)
     const name = 'bob'
-    style.setProperty(`--text`, `'${30}'`);
+
 </script>
 
 <title>Pie Chart</title>
@@ -24,8 +24,8 @@
 	<div class="piechart" />
 </body>
 
-<style lang="scss">
-    --text: '----';
+<style>
+
 	.piechart {
 		margin-top: 300px;
 		display: block;
@@ -34,7 +34,7 @@
 		height: 400px;
 		border-radius: 50%;
 		background-image: conic-gradient(
-            pink var(--text)deg, 
+            pink 0deg, 
             lightblue 0 235deg, 
             red 235deg 245deg,
             orange 0
