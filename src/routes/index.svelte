@@ -27,9 +27,10 @@
 	console.log('carbonData:', carbonData);
 
 	let viewTable = true;
+	let chartData = [];
 </script>
 
 <div class="max-w-2xl mx-auto  p-3">
-	<Header bind:viewTable={viewTable} />
-	<Table {carbonData} bind:viewTable/>
+	<Header bind:viewTable={viewTable} bind:chartData={chartData}/>
+	<Table {carbonData} bind:viewTable={viewTable} bind:chartData={chartData}/>
 </div>

@@ -1,12 +1,13 @@
 <script>
 	export let carbonData;
 	export let viewTable;
+    export let chartData
 	import TableRow from './TableRow.svelte';
 	import Header from '../Header.svelte';
 	import Card from '../card/card.svelte';
 	import TableHead from './tableHead.svelte';
 
-	let chartData = [];
+
 </script>
 
 <div>
