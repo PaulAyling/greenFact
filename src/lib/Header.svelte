@@ -5,7 +5,7 @@
 </script>
 
 <header class="flex flex-row justify-end items-center">
-    <div class="text-4xl text-blue-400 text-right self-center mr-10 font-bold divide-solid flex-grow: 2">
+    <div class="text-4xl text-blue-400 font-bold text-center w-full">
         {viewTable ? "Carbon Intensity Data" : chartData.dnoregion}
          <hr class="mt-4">
         </div>
