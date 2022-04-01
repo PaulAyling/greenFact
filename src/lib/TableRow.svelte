@@ -1,13 +1,13 @@
 <script>
 	export let carbonData;
-    export let viewDetails
+    export let viewTable
     const toggle = () =>{
-        viewDetails =! viewDetails
-        console.log('viewDetails',viewDetails)
+        viewTable = ! viewTable
+        console.log('viewTable',viewTable)
     }
 </script>
 
-<tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+<tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700 cursor-pointer ">
 	{#each carbonData as carbon}
 		<tr on:click={toggle}   class="hover:bg-gray-100 dark:hover:bg-gray-700">
 			<th

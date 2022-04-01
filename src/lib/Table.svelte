@@ -1,13 +1,15 @@
 <script>
     export let carbonData
     import TableRow from './TableRow.svelte'
+    import Btn from './Btn.svelte'
+    import Header from './Header.svelte'
 
-    let viewDetails = false
+    let viewTable = true
 </script>
-<h1 class="text-2xl text-center mt-3">Carbon Intensity</h1>
-viewDetails:{viewDetails}
+<Header bind:viewTable={viewTable} />
 
-<div class="max-w-2xl mx-auto mt-10">
+{#if viewTable}
+<div class="max-w-2xl mx-auto">
 
 	<div class="flex flex-col">
     <div class="overflow-x-auto shadow-md sm:rounded-lg">
@@ -27,11 +29,13 @@ viewDetails:{viewDetails}
                             </th>
                         </tr>
                     </thead>
-                    <TableRow {carbonData} bind:viewDetails={viewDetails}></TableRow>
+                    <TableRow {carbonData} bind:viewTable={viewTable}></TableRow>
                 </table>
             </div>
         </div>
     </div>
 </div>
-
 </div>
+{:else}
+chart is here
+{/if}
