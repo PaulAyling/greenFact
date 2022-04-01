@@ -1,6 +1,5 @@
 <script>
     export let chartData
-    console.log('HEADER chartData',chartData)
 </script>
 <header class="flex flex-col">
 <!-- <div class="text-4xl text-blue-400 text-center font-bold divide-solid">
@@ -16,7 +15,7 @@
     <div class=" text-gray-300 text-center font-bold divide-solid">
         gCO2/kWh
         
-        <hr class="mt-20">
+        <hr class="mt-10">
 </div>
 
 

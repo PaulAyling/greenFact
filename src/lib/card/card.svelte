@@ -4,8 +4,8 @@
 	export let chartData;
 	import CardHeader from './CardHeader.svelte';
 	import Pie from './Pie.svelte';
+	import Legend from './legend/Legend.svelte'
 	const generationMix = chartData.generationmix;
-	// console.log('PIE:PROP', generationMix);
 
 	const createCssParams = (arr) => {
 		const convertToDeg = (arr) => {
@@ -34,7 +34,6 @@
 			return res;
 		};
 		const cum = makeCumulative(degArr);
-		console.log('makeCumulative', cum);
 		const makeParams = (arr) => {
 			const applyUnit = (n) => {
 				if ((n == '0')) {
@@ -52,10 +51,11 @@
 				let param;
 				if (i == 0) {
 					param = '0 ' + current;
+					res.push(param);
 				} else {
-					// param = 'hello'
 					const recordBefore = applyUnit(String(parseInt(arr[i-1]))) 
 					param = recordBefore + ' '+current
+			
 					res.push(param);
 				}
 			}
@@ -65,10 +65,13 @@
 		return final
 	};
 	const cssParams = createCssParams(generationMix);
-
+	console.log('Chart Data',chartData)
 </script>
 
-<main >
+<main class="mb-20">	
 	<CardHeader {chartData}/>
-	<Pie {cssParams} />
+	<div class="flex flex-row justify-between	">
+		<Pie {cssParams} />
+		<Legend {chartData}/>
+	</div>
 </main>

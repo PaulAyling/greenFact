@@ -10,9 +10,8 @@
 			'https://api.carbonintensity.org.uk/regional/intensity/source/2022-02-14T18:00:00.000Z/fw24h'
 		);
 		const res = await fetched.json();
-		console.log('res Full', res.data);
 		carbonData = res.data[0].regions;
-		console.log('carbonData::', carbonData);
+		console.log('Fetched Data:', carbonData);
 		return res.data[0].regions;
 	}
 
@@ -24,7 +23,7 @@
 		}
 	};
 	updateCarbonData();
-	console.log('carbonData:', carbonData);
+
 
 	let viewTable = true;
 	let chartData = [];
