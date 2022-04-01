@@ -69,6 +69,6 @@
 </script>
 
 <main >
-	<ardHeader {chartData}/>
+	<CardHeader {chartData}/>
 	<Pie {cssParams} />
 </main>
