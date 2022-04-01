@@ -1,15 +1,37 @@
 <script>
-    export let chartData
-    import Pie from './Pie.svelte'
+	export let chartData;
+	const generationMix = chartData.generationmix;
+	console.log('chartData:card:generationMix', generationMix);
+    const convPerToDeg = (arr)=>{
+        
+    }
 
-    console.log('chartData:card:',chartData)
-    const generationMix = chartData.generationmix
+
+
 </script>
-<article>
-    <ul>
-        {#each generationMix as mixItem}
-        <li>    {mixItem.fuel} :Percentage {mixItem.perc}</li>
-        {/each}
-    </ul>
-    <Pie/>
-</article>
+
+<title>Pie Chart</title>
+
+<body>
+	<h1>Pie Chart</h1>
+	<div class="piechart" />
+</body>
+
+<style>
+	.piechart {
+		margin-top: 300px;
+		display: block;
+		position: absolute;
+		width: 400px;
+		height: 400px;
+		border-radius: 50%;
+		background-image: conic-gradient(pink 70deg, lightblue 0 235deg, orange 0);
+	}
+
+	body,
+	.piechart {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>

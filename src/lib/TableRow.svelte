@@ -4,7 +4,7 @@
 	export let chartData
     const toggle = (areaData) =>{
         viewTable = ! viewTable
-        console.log('viewTable',viewTable,chartData)
+        // console.log('viewTable',viewTable,chartData)
 		chartData = areaData
     }
 </script>
