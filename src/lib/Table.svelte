@@ -3,10 +3,13 @@
     import TableRow from './TableRow.svelte'
     import Btn from './Btn.svelte'
     import Header from './Header.svelte'
+    import Card from './card.svelte'
+
 
     let viewTable = true
+    let chartData = []
 </script>
-<Header bind:viewTable={viewTable} />
+<Header />
 
 {#if viewTable}
 <div class="max-w-2xl mx-auto">
@@ -29,7 +32,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <TableRow {carbonData} bind:viewTable={viewTable}></TableRow>
+                    <TableRow {carbonData} bind:viewTable={viewTable} bind:chartData={chartData}></TableRow>
                 </table>
             </div>
         </div>
@@ -37,5 +40,9 @@
 </div>
 </div>
 {:else}
-chart is here
+<div>
+
+    <Btn bind:viewTable={viewTable}/>
+    <Card {chartData}/>
+</div>
 {/if}
