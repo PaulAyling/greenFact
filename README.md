@@ -1,5 +1,5 @@
 # About
-This is an Example fro Greenfact
+An Example for Greenfact
 * The chart colors are as provided but are not my favourite
 * I appended a legend to the chart as I thought the way it was presented in the card was fiddly and presenting it as a legend is more effective.
 
