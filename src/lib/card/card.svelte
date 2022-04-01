@@ -5,7 +5,7 @@
 	import CardHeader from './CardHeader.svelte';
 	import Pie from './Pie.svelte';
 	const generationMix = chartData.generationmix;
-	console.log('PIE:PROP', generationMix);
+	// console.log('PIE:PROP', generationMix);
 
 	const createCssParams = (arr) => {
 		const convertToDeg = (arr) => {
@@ -17,7 +17,7 @@
 			return res;
 		};
 		const degArr = convertToDeg(arr);
-		console.log('convert', degArr);
+		// console.log('convert', degArr);
 
 		const makeCumulative = (arr) => {
 			let res = [];
@@ -25,7 +25,8 @@
 				let cumulativeDeg;
 				if (i == 0) {
 					cumulativeDeg = arr[i];
-				} else {
+				}				
+				else {
 					cumulativeDeg = arr[i] + parseFloat(res[i - 1]);
 				}
 				res.push(cumulativeDeg);
