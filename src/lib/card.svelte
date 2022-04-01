@@ -2,12 +2,19 @@
 	export let chartData;
 	const generationMix = chartData.generationmix;
 	console.log('chartData:card:generationMix', generationMix);
-    const convPerToDeg = (arr)=>{
-        
-    }
+	console.log();
 
-
-
+	const convertToDegrees = (arr) => {
+        let res = []
+		for (let i = 0; i < arr.length; i++) {
+			res.push({'fuel':arr[i].fuel,'deg':parseInt(arr[i].perc)/100*360})
+		}
+        return res
+	};
+    console.log('convertToDegrees',convertToDegrees(generationMix))
+    const mixByDegrees = convertToDegrees(generationMix)
+    const name = 'bob'
+    style.setProperty(`--text`, `'${30}'`);
 </script>
 
 <title>Pie Chart</title>
@@ -17,7 +24,8 @@
 	<div class="piechart" />
 </body>
 
-<style>
+<style lang="scss">
+    --text: '----';
 	.piechart {
 		margin-top: 300px;
 		display: block;
@@ -25,7 +33,12 @@
 		width: 400px;
 		height: 400px;
 		border-radius: 50%;
-		background-image: conic-gradient(pink 70deg, lightblue 0 235deg, orange 0);
+		background-image: conic-gradient(
+            pink var(--text)deg, 
+            lightblue 0 235deg, 
+            red 235deg 245deg,
+            orange 0
+            );
 	}
 
 	body,
