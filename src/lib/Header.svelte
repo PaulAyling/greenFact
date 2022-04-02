@@ -4,7 +4,7 @@
     import Btn from './Btn.svelte'
 </script>
 
-<header class="flex flex-row justify-end items-center">
+<header class="flex flex-row justify-end items-start">
     <div class="text-4xl text-blue-400 font-bold text-center w-full">
         {viewTable ? "Carbon Intensity Data" : chartData.dnoregion}
          <hr class="mt-4">
