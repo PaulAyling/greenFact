@@ -27,9 +27,9 @@ import { start_hydrating } from "svelte/internal";
 
 </script>
 
-<tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700 cursor-pointer ">
+<tbody class="bg-white divide-y divide-gray-200  cursor-pointer ">
 	{#each carbonData as areaData}
-		<tr on:click={() => toggle(areaData)}   class="hover:bg-gray-100 dark:hover:bg-gray-700">
+		<tr on:click={() => toggle(areaData)}   class="hover:bg-blue-100 dark:hover:bg-blue-100 hover:rounded ">
 			<th
 				scope="col"
 				class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
