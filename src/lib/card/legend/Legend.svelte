@@ -1,21 +1,8 @@
 <script>
-	export let chartData;
+	export let generationMix;
 	import LegendRow from './legendRow.svelte';
-	const legendRaw = chartData.generationmix
-
-	console.log('legendRaw',legendRaw)
-	const addCol = (arr)=>{
-		let res = []
-		const colors= ['orange','gray','lightgray','blue','yellow','#778899','purple','red','orange']
-		for (let i = 0; i < arr.length; i++) {
-			
-			const newOb = {'fuel':arr[i].fuel,'perc':arr[i].perc,'color':colors[i]}
-			res.push(newOb)
-		}
-		return res
-	} 
-	const legend = addCol(legendRaw)
-	console.log('legend',legend)
+	const legend = generationMix
+	console.log('legend:',legend)
 	
 </script>
 
@@ -41,12 +28,10 @@
 								</th>
 							</tr>
 						</thead>
-						<tbody
-							class="bg-white divide-y divide-blue-200 cursor-pointer "
-						>
-						{#each legend as row}
-							<LegendRow fuel={row.fuel} perc={row.perc} color={row.color}/>
-						{/each}
+						<tbody class="bg-white divide-y divide-blue-200 cursor-pointer ">
+							{#each legend as row}
+								<LegendRow fuel={row.fuel} perc={row.perc} color={row.legendCol} />
+							{/each}
 						</tbody>
 					</table>
 				</div>

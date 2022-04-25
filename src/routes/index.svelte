@@ -1,8 +1,7 @@
 <script>
 	import '../app.css';
-
 	import Table from '../lib/table/Table.svelte';
-	import Header from '../lib/Header.svelte'
+	import Header from '../lib/Header.svelte';
 
 	var carbonData = [];
 	async function loadJson() {
@@ -11,7 +10,6 @@
 		);
 		const res = await fetched.json();
 		carbonData = res.data[0].regions;
-		console.log('Fetched Data:', carbonData);
 		return res.data[0].regions;
 	}
 
@@ -24,12 +22,11 @@
 	};
 	updateCarbonData();
 
-
 	let viewTable = true;
 	let chartData = [];
 </script>
 
 <div class="max-w-2xl mx-auto  p-3">
-	<Header bind:viewTable={viewTable} bind:chartData={chartData}/>
-	<Table {carbonData} bind:viewTable={viewTable} bind:chartData={chartData}/>
+	<Header bind:viewTable bind:chartData />
+	<Table {carbonData} bind:viewTable bind:chartData />
 </div>

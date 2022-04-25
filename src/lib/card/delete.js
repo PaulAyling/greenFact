@@ -1,0 +1,9 @@
+orange 0,
+gray var(--f0_biomass),
+lightgray var(--f1_coal),
+blue var(--f2_imports),
+yellow var(--f3_gas),
+pink var(--f4_nuclear),
+purple var(--f5_other),
+red var(--f6_hydro),
+cyan var(--f7_solar

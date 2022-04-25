@@ -1,4 +1,5 @@
 <script>
+	export let chartData
 	export let cssParams;
 	// console.log('Pie PROP:', cssParams);
 
@@ -52,24 +53,15 @@
 		height: 350px;
 		border-radius: 50%;
 		background-image: conic-gradient(
-			/* pink 0,
-			lightblue 0 0,
-			red 0 0,
-			green 0 0,
-			purple 0 8deg,
-			blue 8deg 8deg, 
-			orange 8deg 171deg,
-			cyan 171deg 171deg, 
-			gray 171deg 359deg  */
-			orange 0,
-			gray var(--f0_biomass),
-			lightgray var(--f1_coal),
-			blue var(--f2_imports),
-			yellow var(--f3_gas),
-			#778899 var(--f4_nuclear),
-			purple var(--f5_other),
-			red var(--f6_hydro),
-			orange var(--f7_solar) /* blue var(--f8_wimd) */
+		orange 0,
+		orange var(--f0_biomass),
+		gray var(--f1_coal),
+		lightGray var(--f2_imports),
+		blue var(--f3_gas),
+		yellow var(--f4_nuclear),
+		pink var(--f5_other),
+		purple var(--f6_hydro),
+		cyan var(--f7_solar)
 		);
 	}
 

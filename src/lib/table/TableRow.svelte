@@ -12,9 +12,9 @@ import { start_hydrating } from "svelte/internal";
     }
 
 	const colBand = (str) =>{
-		console.log('colBand running.....ARG:',str)
+		// console.log('colBand running.....ARG:',str)
 		if(str == 'low'){
-			console.log('intesity fiunc:',str,'rounded green')
+			// console.log('intesity fiunc:',str,'rounded green')
 			return 'rounded bg-green-500'
 		}else if(str == 'very low'){
 			return 'rounded bg-green-200'

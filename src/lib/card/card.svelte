@@ -1,11 +1,13 @@
 <script>
 	import { intros } from 'svelte/internal';
-
 	export let chartData;
 	import CardHeader from './CardHeader.svelte';
 	import Pie from './Pie.svelte';
-	import Legend from './legend/Legend.svelte'
-	const generationMix = chartData.generationmix;
+	import Legend from './legend/Legend.svelte';
+	import { ammendColors } from './ammendColors';
+	const generationMix = ammendColors(chartData.generationmix);
+	console.log('chartData',chartData)
+	console.log('generationMix',generationMix)
 
 	const createCssParams = (arr) => {
 		const convertToDeg = (arr) => {
@@ -17,7 +19,6 @@
 			return res;
 		};
 		const degArr = convertToDeg(arr);
-		// console.log('convert', degArr);
 
 		const makeCumulative = (arr) => {
 			let res = [];
@@ -25,8 +26,7 @@
 				let cumulativeDeg;
 				if (i == 0) {
 					cumulativeDeg = arr[i];
-				}				
-				else {
+				} else {
 					cumulativeDeg = arr[i] + parseFloat(res[i - 1]);
 				}
 				res.push(cumulativeDeg);
@@ -36,7 +36,7 @@
 		const cum = makeCumulative(degArr);
 		const makeParams = (arr) => {
 			const applyUnit = (n) => {
-				if ((n == '0')) {
+				if (n == '0') {
 					return '0';
 				} else {
 					return n + 'deg';
@@ -53,25 +53,26 @@
 					param = '0 ' + current;
 					res.push(param);
 				} else {
-					const recordBefore = applyUnit(String(parseInt(arr[i-1]))) 
-					param = recordBefore + ' '+current
-			
+					const recordBefore = applyUnit(String(parseInt(arr[i - 1])));
+					param = recordBefore + ' ' + current;
+
 					res.push(param);
 				}
 			}
 			return res;
 		};
 		const final = makeParams(cum);
-		return final
+		return final;
 	};
 	const cssParams = createCssParams(generationMix);
-	console.log('Chart Data',chartData)
+	console.log('cssParams',cssParams)
+	console.log('chartData',chartData)
 </script>
 
-<main class="mb-20">	
-	<CardHeader {chartData}/>
+<main class="mb-20">
+	<CardHeader {chartData} />
 	<div class="flex flex-row justify-between	">
-		<Pie {cssParams} />
-		<Legend {chartData}/>
+		<Pie {cssParams} {chartData} />
+		<Legend {generationMix} />
 	</div>
 </main>
